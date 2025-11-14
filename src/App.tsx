@@ -8,7 +8,7 @@ import { ProjectDetail } from '../components/ProjectDetail';
 import { mockClients, mockTeamMembers, mockProjects, mockActivities, mockChatRooms, mockChatMessages, mockDonations, mockVolunteers, mockCases, mockDocuments, mockWebpages, mockEvents, mockEmailCampaigns } from '../data/mockData';
 import { portalDbService } from '../services/portalDbService';
 import { performAdvancedSearch } from '../services/geminiService';
-import type { Client, TeamMember, Project, EnrichedTask, Activity, ChatRoom, ChatMessage, Donation, Volunteer, Case, Document, Webpage, CaseComment, Event, PortalLayout, EmailCampaign, WebSearchResult, SearchResults } from './types';
+import type { Client, TeamMember, Project, EnrichedTask, Activity, ChatRoom, ChatMessage, Donation, Volunteer, Case, Document, Webpage, CaseComment, Event, PortalLayout, EmailCampaign, WebSearchResult, SearchResults } from '../types';
 import type { Page } from '../types';
 import { ClientList } from '../components/ClientList';
 import { OrganizationDetail } from '../components/OrganizationDetail';
@@ -32,7 +32,7 @@ import { CaseManagement } from '../components/CaseManagement';
 import { DocumentLibrary } from '../components/DocumentLibrary';
 import { WebManagement } from '../components/WebManagement';
 import { GoldPages } from '../components/GoldPages';
-import { WebpageStatus, DocumentCategory, ActivityType, ActivityStatus, CaseStatus } from './types';
+import { WebpageStatus, DocumentCategory, ActivityType, ActivityStatus, CaseStatus } from '../types';
 import { AiChatBot } from '../components/AiChatBot';
 import { AiTools } from '../components/AiTools';
 import { LiveChat } from '../components/LiveChat';
@@ -46,9 +46,9 @@ import { ClientPortalLogin } from '../components/ClientPortalLogin';
 import { ClientPortal } from '../components/ClientPortal';
 import { EmailCampaigns } from '../components/EmailCampaigns';
 import { GrantAssistant } from '../components/GrantAssistant';
-import { ToastProvider, useToast } from '../components/Toast';
+import { useToast } from './components/Toast';
 
-const AppContent: React.FC = () => {
+const App: React.FC = () => {
   const { showToast } = useToast();
   const [clients, setClients] = useState<Client[]>(mockClients);
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>(mockTeamMembers);
@@ -830,14 +830,6 @@ const AppContent: React.FC = () => {
           </div>
         )}
       </div>
-  );
-};
-
-const App: React.FC = () => {
-  return (
-    <ToastProvider>
-      <AppContent />
-    </ToastProvider>
   );
 };
 
