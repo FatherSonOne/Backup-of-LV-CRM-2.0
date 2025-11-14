@@ -420,6 +420,7 @@ const AppContent: React.FC = () => {
     };
     setEditingWebpage(newPage);
     setIsGoldPagesEditorOpen(true);
+    showToast('New page created. Start editing!', 'info');
   };
 
   const handleEditPage = (pageId: string) => {
